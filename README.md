@@ -8,4 +8,4 @@ Conversion funnels in GA4 with BigQuery. Optimized SQL queries to analyze user b
 - `funnel_full_dimensions.sql` – Full funnel with all dimensions for dashboards
 
   ## 🔍 How to Use
-You can run these queries directly in BigQuery, or use them as the basis for saved views or data sources in Looker Studio, Power BI, and other tools.
+You can run these queries directly in BigQuery, or use them as the basis for saved views or data sources in Looker Studio, Power BI, Tableau and other tools.
