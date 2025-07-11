@@ -15,14 +15,14 @@ group by event_date
 select
 period,
 session_start,
-concat(round((view_item/session_start)*100,2),'%') as step_0_view_item,
+concat(round(SAFE_DIVIDE(view_item,session_start)*100,2),'%') as step_0_view_item,
 view_item,
-concat(round((add_to_cart/view_item)*100,2),'%') as step_1_add_to_cart,
+concat(round(SAFE_DIVIDE(add_to_cart,view_item)*100,2),'%') as step_1_add_to_cart,
 add_to_cart,
-concat(round((begin_checkout/add_to_cart)*100,2),'%') as step_2_begin_checkout,
+concat(round(SAFE_DIVIDE(begin_checkout,add_to_cart)*100,2),'%') as step_2_begin_checkout,
 begin_checkout,
-concat(round((purchase/begin_checkout)*100,2),'%') as step_3_purchase,
+concat(round(SAFE_DIVIDE(purchase,begin_checkout)*100,2),'%') as step_3_purchase,
 purchase,
-concat(round((purchase/session_start)*100,2),'%') as total_CR
+concat(round(SAFE_DIVIDE(purchase,session_start)*100,2),'%') as total_CR
 from main_query
 order by period
