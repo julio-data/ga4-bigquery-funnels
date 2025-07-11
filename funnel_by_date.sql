@@ -1,9 +1,7 @@
 -- Step 1: Aggregate daily unique users per funnel step
 with main_query as(
 select
--- Convert GA4 string date ('20210131') into actual DATE type
 PARSE_DATE('%Y%m%d', event_date) AS period,
--- Count distinct users who triggered each funnel event
 count(distinct if(event_name='session_start',user_pseudo_id,null))as session_start,
 count(distinct if(event_name='view_item',user_pseudo_id,null))as view_item,
 count(distinct if(event_name='add_to_cart',user_pseudo_id,null))as add_to_cart,
